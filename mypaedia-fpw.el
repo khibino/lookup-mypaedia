@@ -1,4 +1,4 @@
-;;; mypaedia.el --- supplement file for $B!X%^%$%Z%G%#%"#9#9!Y(B
+;;; mypaedia.el --- supplement file for 『マイペディア９９』
 ;; $Id: mypaedia-fpw.el,v 1.8 2001/11/25 05:04:49 kazuhiko Exp $
 ;;
 ;; Copyright (C) 2000 Keisuke Nishida <kxn30@po.cwru.edu>
@@ -25,25 +25,25 @@
 (require 'lookup-content)
 
 (defvar mypaedia-data-directory "/mnt/cdrom/INDEX"
-  "BH.DAT, CH.DAT, MAP.DAT, PICT.DAT $B$N$"$k>l=j!#(B")
+  "BH.DAT, CH.DAT, MAP.DAT, PICT.DAT のある場所。")
 (defvar mypaedia-av-directory "/mnt/cdrom/DATA"
-  "*.MID, *.WAV, *.AVI $B$N$"$k>l=j!#(B")
+  "*.MID, *.WAV, *.AVI のある場所。")
 (defvar mypaedia-play-midi-process "timidity"
-  "MIDI $B$r:F@8$9$k%W%m%;%9L>!#(Bnil $B$J$i:F@8$7$J$$!#(B")
+  "MIDI を再生するプロセス名。nil なら再生しない。")
 (defvar mypaedia-play-wav-process "soxplay"
-  "WAV $B$r:F@8$9$k%W%m%;%9L>!#(Bnil $B$J$i:F@8$7$J$$!#(B")
+  "WAV を再生するプロセス名。nil なら再生しない。")
 (defvar mypaedia-play-avi-process "xanim"
-  "AVI $B$r:F@8$9$k%W%m%;%9L>!#(Bnil $B$J$i:F@8$7$J$$!#(B")
+  "AVI を再生するプロセス名。nil なら再生しない。")
 (defvar mypaedia-display-image-process "display"
-  "$B2hA|(B $B$rI=<($9$k%W%m%;%9L>!#(Bnil $B$J$iI=<($7$J$$!#(B")
+  "画像 を表示するプロセス名。nil なら表示しない。")
 (defvar mypaedia-sound-without-notice nil
-  "t $B$J$i8!:w$HF1;~$K2;@<$r:F@8$9$k!#(B")
+  "t なら検索と同時に音声を再生する。")
 (defvar mypaedia-video-without-notice nil
-  "t $B$J$i8!:w$HF1;~$KF02h$r:F@8$9$k!#(B")
+  "t なら検索と同時に動画を再生する。")
 (defvar mypaedia-image-inline t
-  "nil $B$J$i(B ($B2DG=$J>l9g$G$b(B) $B2hA|$r%$%s%i%$%sI=<($7$J$$!#(B")
+  "nil なら (可能な場合でも) 画像をインライン表示しない。")
 (defvar perl-process "perl"
-  "perl $B$N%W%m%;%9L>!#%Q%9$,DL$C$F$$$J$$>l9g$O%U%k%Q%9$G5-=R$9$k$3$H!#(B")
+  "perl のプロセス名。パスが通っていない場合はフルパスで記述すること。")
 
 (defconst mypaedia-arranges
   '(lookup-arrange-gaijis
@@ -60,16 +60,16 @@
 
 (defvar mypaedia-process-file-alist '())
 
-;; 
-;; $B85$+$i$"$k(B lookup-content-follow-link$B$N3HD%(B
-;; 
+;;
+;; 元からある lookup-content-follow-linkの拡張
+;;
 (unless (fboundp 'lookup-content-follow-link:old)
   (fset 'lookup-content-follow-link:old
 	(symbol-function 'lookup-content-follow-link))
   (defun lookup-content-follow-link ()
     (interactive)
     (let ((action (get-text-property (point) 'action)))
-      (if action 
+      (if action
 	  (funcall action (point))
 	(lookup-content-follow-link:old)))))
 
@@ -115,7 +115,7 @@
 		 (progn
 		   (replace-match "\n")
 		   (let ((tmp-img-file
-			  (make-temp-name 
+			  (make-temp-name
 			   (expand-file-name "mp" temporary-file-directory))))
 		     (call-process
 		      perl-process nil nil nil
@@ -127,15 +127,15 @@
 			      (insert-file-contents-literally
 			       tmp-img-file  nil 0 ndeb-max-image-size)
 			      (string-make-unibyte
-			       (buffer-substring-no-properties 
+			       (buffer-substring-no-properties
 				(point-min) (point-max))))))
 		       (insert-image
 			(create-image glyph nil t :ascent 'center)))
 		       (delete-file tmp-img-file)
 		       ))))
-	(replace-match "$B"*(B[$B2hA|(B]")
-	(add-text-properties start 
-			     (+ (length "$B"*(B[$B2hA|(B]") start)
+	(replace-match "→[画像]")
+	(add-text-properties start
+			     (+ (length "→[画像]") start)
 			     (list 'action 'mypaedia-display-image
 				   'file  file
 				   'offset offset
@@ -143,13 +143,13 @@
 				   'face 'lookup-reference-face
 				   'length   length))))))
 ;;
-;; $B30It%W%m%;%9$rMxMQ$7$?%$%a!<%8$NI=<((B
+;; 外部プロセスを利用したイメージの表示
 ;;
 (defun mypaedia-display-image (pos)
   (let* ((file (get-text-property pos 'file))
 	 (offset (get-text-property pos 'offset))
 	 (length (get-text-property pos 'length))
-	 (tmp-img-file (make-temp-name 
+	 (tmp-img-file (make-temp-name
 			(expand-file-name "mp" temporary-file-directory))))
     (if mypaedia-display-image-process
 	(progn
@@ -160,8 +160,8 @@
 	  (mypaedia-start-process
 	   mypaedia-display-image-process nil tmp-img-file t)))))
 ;;
-;; $B30It%W%m%;%9$N8F=P$7(B
-;; 
+;; 外部プロセスの呼出し
+;;
 (defun mypaedia-start-process (program options file &optional delete-file)
     (message "Starting %s ..." program)
     (let ((pro (apply (function start-process)
@@ -171,22 +171,22 @@
 		      (append options (list file)))))
       	(message "Starting %s ... done" program)
 	(set-process-sentinel pro 'mypaedia-start-process-sentinel)
-	(setq mypaedia-process-file-alist 
-		(cons (cons pro file) 
-		      (if delete-file 
+	(setq mypaedia-process-file-alist
+		(cons (cons pro file)
+		      (if delete-file
 			  mypaedia-process-file-alist
 			nil)))))
 ;;
-;; $B%W%m%;%9$N>uBV$,JQ99$5$l$?$H$-$K%U%!%$%k$r:o=|$9$k!#(B
+;; プロセスの状態が変更されたときにファイルを削除する。
 ;;
 (defun mypaedia-start-process-sentinel (process event)
   (let ((al (assoc process mypaedia-process-file-alist)))
     (and (cdr al) (delete-file (cdr al)))
-    (setq mypaedia-process-file-alist 
+    (setq mypaedia-process-file-alist
 	  (delete al mypaedia-process-file-alist))))
 
 ;;
-;; $B30It%W%m%;%9$rMxMQ$7$?(B MIDI $B$N:F@8(B
+;; 外部プロセスを利用した MIDI の再生
 ;;
 (defun mypaedia-arrange-midi (entry)
   (while (re-search-forward "<sound=\\([^>]+mid\\)>" nil t)
@@ -195,9 +195,9 @@
 	  (end (match-end 0)))
       (if mypaedia-sound-without-notice
 	  (mypaedia-play-midi-sub file t))
-      (replace-match "$B"*(B[$B2;@<(B]")
-      (add-text-properties start 
-			   (+ (length "$B"*(B[$B2;@<(B]") start)
+      (replace-match "→[音声]")
+      (add-text-properties start
+			   (+ (length "→[音声]") start)
 			   (list 'action 'mypaedia-play-midi
 				 'file file
 				 'mouse-face 'highlight
@@ -221,7 +221,7 @@
   (mypaedia-play-midi-sub (get-text-property pos 'file)))
 
 ;;
-;; $B30It%W%m%;%9$rMxMQ$7$?(B WAV $B$N:F@8(B
+;; 外部プロセスを利用した WAV の再生
 ;;
 (defun mypaedia-arrange-wav (entry)
   (while (re-search-forward "<sound=\\([^>]+wav\\)>" nil t)
@@ -230,9 +230,9 @@
 	  (end (match-end 0)))
       (if mypaedia-sound-without-notice
 	  (mypaedia-play-wav-sub file t))
-      (replace-match "$B"*(B[$B2;@<(B]")
-      (add-text-properties start 
-			   (+ (length "$B"*(B[$B2;@<(B]") start)
+      (replace-match "→[音声]")
+      (add-text-properties start
+			   (+ (length "→[音声]") start)
 			   (list 'action 'mypaedia-play-wav
 				 'file file
 				 'mouse-face 'highlight
@@ -256,7 +256,7 @@
   (mypaedia-play-wav-sub (get-text-property pos 'file)))
 
 ;;
-;; $B30It%W%m%;%9$rMxMQ$7$?(B AVI $B$N:F@8(B
+;; 外部プロセスを利用した AVI の再生
 ;;
 (defun mypaedia-arrange-avi (entry)
   (while (re-search-forward "<video=\\([^>]+avi\\)>" nil t)
@@ -265,9 +265,9 @@
 	  (end (match-end 0)))
       (if mypaedia-video-without-notice
 	  (mypaedia-play-avi-sub file t))
-      (replace-match "$B"*(B[$BF02h(B]")
-      (add-text-properties start 
-			   (+ (length "$B"*(B[$BF02h(B]") start)
+      (replace-match "→[動画]")
+      (add-text-properties start
+			   (+ (length "→[動画]") start)
 			   (list 'action 'mypaedia-play-avi
 				 'file  file
 				 'mouse-face 'highlight

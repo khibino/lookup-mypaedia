@@ -1,71 +1,71 @@
 2001-12-01  Kazuhiko  <kazuhiko@ring.gr.jp>
 
-	* mypaedia-fpw-package-1.0.7 ¸ø³«
-	* mypaedia-fpw.el (mypaedia-arrange-images): Emacs-21 ¤ËÂĞ±ş¡£
+	* mypaedia-fpw-package-1.0.7 å…¬é–‹
+	* mypaedia-fpw.el (mypaedia-arrange-images): Emacs-21 ã«å¯¾å¿œã€‚
 
 2001-06-24  Kazuhiko  <kazuhiko@ring.gr.jp>
 
-	* mypaedia-fpw-package-1.0.6 ¸ø³«
-	* mypaedia-fpw.el (lookup-package-dictionary-options-alist): ¼­½ñ
-	Ì¾¤¬ÂçÊ¸»ú¤Ç¤â¾®Ê¸»ú¤Ç¤âÂĞ±ş¤¹¤ë¤è¤¦¤ËÊÑ¹¹¡£
+	* mypaedia-fpw-package-1.0.6 å…¬é–‹
+	* mypaedia-fpw.el (lookup-package-dictionary-options-alist): è¾æ›¸
+	åãŒå¤§æ–‡å­—ã§ã‚‚å°æ–‡å­—ã§ã‚‚å¯¾å¿œã™ã‚‹ã‚ˆã†ã«å¤‰æ›´ã€‚
 
 2000-10-06 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia-fpw-package-1.0.4 ¸ø³«
-	* mypaedia-fpw.el XEmacs ¤Ç¤Î¥¤¥ó¥é¥¤¥óÉ½¼¨¤ò¡¢°ì»şÅª¤Ë 
-	  format-alist ¤òÊÑ¹¹¤¹¤ë¤³¤È¤Ë¤è¤ê XEmacs-21.2.x ¤ËÂĞ±ş¡£
+	* mypaedia-fpw-package-1.0.4 å…¬é–‹
+	* mypaedia-fpw.el XEmacs ã§ã®ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³è¡¨ç¤ºã‚’ã€ä¸€æ™‚çš„ã«
+	  format-alist ã‚’å¤‰æ›´ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Š XEmacs-21.2.x ã«å¯¾å¿œã€‚
 
 2000-08-05 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia-fpw.el display-image-inline ¤«¤é mypaedia-image-inline ¤Ë
-	  ²şÌ¾¡£
+	* mypaedia-fpw.el display-image-inline ã‹ã‚‰ mypaedia-image-inline ã«
+	  æ”¹åã€‚
 
 2000-08-01 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia-fpw-package-1.0.3 ¸ø³«
-	* extract-mypaedia.pl extract.pl ¤ò²şÌ¾¡£
+	* mypaedia-fpw-package-1.0.3 å…¬é–‹
+	* extract-mypaedia.pl extract.pl ã‚’æ”¹åã€‚
 
 2000-06-17 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia-fpw-package1.0.2 ¸ø³«¡Êmypaedia-package ¤ò²ş¾Î¡Ë¡£
+	* mypaedia-fpw-package1.0.2 å…¬é–‹ï¼ˆmypaedia-package ã‚’æ”¹ç§°ï¼‰ã€‚
 
 2000-06-16 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia-fpw.el mypaedia.el ¤ò²ş¾Î¡£
-	* extract.pl ¿·Àß¡£
-	* mypaedia-fpw.el ¥Õ¥¡¥¤¥ë¤ÎÀÚ½Ğ¤·¤ò elisp ¤Ç¤Ï¤Ê¤¯ perl ¤Ç¼ÂÁõ¤·¤¿¡£
-	  ¤³¤ì¤Ë¤è¤ê¡¢emacs ¤Î int ¤ÎÀ©¸Â¤ò²óÈò¡£
+	* mypaedia-fpw.el mypaedia.el ã‚’æ”¹ç§°ã€‚
+	* extract.pl æ–°è¨­ã€‚
+	* mypaedia-fpw.el ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆ‡å‡ºã—ã‚’ elisp ã§ã¯ãªã perl ã§å®Ÿè£…ã—ãŸã€‚
+	  ã“ã‚Œã«ã‚ˆã‚Šã€emacs ã® int ã®åˆ¶é™ã‚’å›é¿ã€‚
 
 2000-04-12 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia-package1.0.1 ¸ø³«
+	* mypaedia-package1.0.1 å…¬é–‹
 
-	* mypaedia.el ²»À¼¤äÆ°²è¤Î¥×¥í¥»¥¹¤ò mini buffer ¤ËÉ½¼¨¤¹¤ë¤è¤¦¤Ë
-	  ¤·¤¿¡£¤½¤Î¤Û¤«ºÙ¤«¤Ê¥Ğ¥°½¤Àµ¡£
-	* README.TXT lookup-max-text ¤Ë´Ø¤¹¤ëµ­½Ò¤Ê¤É¤òÄÉ²Ã¡£
+	* mypaedia.el éŸ³å£°ã‚„å‹•ç”»ã®ãƒ—ãƒ­ã‚»ã‚¹ã‚’ mini buffer ã«è¡¨ç¤ºã™ã‚‹ã‚ˆã†ã«
+	  ã—ãŸã€‚ãã®ã»ã‹ç´°ã‹ãªãƒã‚°ä¿®æ­£ã€‚
+	* README.TXT lookup-max-text ã«é–¢ã™ã‚‹è¨˜è¿°ãªã©ã‚’è¿½åŠ ã€‚
 
 2000-04-11 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia-package1.0 ¸ø³«
+	* mypaedia-package1.0 å…¬é–‹
 
-	* mypaedia.el xemacs ¤Ç¤ÎÈó¥¤¥ó¥é¥¤¥óÉ½¼¨¤ËÂĞ±ş¡£WAV, AVI ¤Î¤¤¤­¤Ê
-	  ¤êºÆÀ¸¤ËÂĞ±ş¡£
-	
+	* mypaedia.el xemacs ã§ã®éã‚¤ãƒ³ãƒ©ã‚¤ãƒ³è¡¨ç¤ºã«å¯¾å¿œã€‚WAV, AVI ã®ã„ããª
+	  ã‚Šå†ç”Ÿã«å¯¾å¿œã€‚
+
 2000-04-10 Kazuyoshi Koreeda <k_koreed@d2.dion.ne.jp>
 
-	* mypaedia.el MIDI ¤Î¤¤¤­¤Ê¤êºÆÀ¸¤ËÂĞ±ş¡£¥Õ¥¡¥¤¥ëÌ¾¥¿¥°¤òÈóÉ½¼¨¤Ë¡£
+	* mypaedia.el MIDI ã®ã„ããªã‚Šå†ç”Ÿã«å¯¾å¿œã€‚ãƒ•ã‚¡ã‚¤ãƒ«åã‚¿ã‚°ã‚’éè¡¨ç¤ºã«ã€‚
 
 2000-03-31 Kazuyoshi Koreeda <k_koreed@d2.dion.ne.jp>
 
-	* mypaedia.el ³°Éô¥×¥í¥»¥¹¤òÍÑ¤¤¤¿²èÁüÉ½¼¨¤ËÂĞ±ş¡£
+	* mypaedia.el å¤–éƒ¨ãƒ—ãƒ­ã‚»ã‚¹ã‚’ç”¨ã„ãŸç”»åƒè¡¨ç¤ºã«å¯¾å¿œã€‚
 
 2000-03-26 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
 
-	* mypaedia.el MIDI¡¤WAV¡¤AVI ¤Î¥Õ¥¡¥¤¥ëÌ¾¤òÉ½¼¨¤¹¤ë¤è¤¦¤Ë¤·¤¿¡£
+	* mypaedia.el MIDIï¼ŒWAVï¼ŒAVI ã®ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¡¨ç¤ºã™ã‚‹ã‚ˆã†ã«ã—ãŸã€‚
 
 2000-03-17 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
-	* mypaedia.el ³°Éô¥×¥í¥»¥¹¤òÍÑ¤¤¤¿ MIDI¡¤WAV¡¤AVI ¤ÎºÆÀ¸¤ËÂĞ±ş¡£
+	* mypaedia.el å¤–éƒ¨ãƒ—ãƒ­ã‚»ã‚¹ã‚’ç”¨ã„ãŸ MIDIï¼ŒWAVï¼ŒAVI ã®å†ç”Ÿã«å¯¾å¿œã€‚
 
 2000-03-11 Keisuke Nishida <kxn30@po.cwru.edu>
 
-	* mypaedia.el xemacs ¤Ç¤Î²èÁü¤Î¥¤¥ó¥é¥¤¥óÉ½¼¨¤ËÂĞ±ş¡£
+	* mypaedia.el xemacs ã§ã®ç”»åƒã®ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³è¡¨ç¤ºã«å¯¾å¿œã€‚

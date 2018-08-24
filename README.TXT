@@ -1,113 +1,113 @@
-mypaedia-package --- FreePWING �Łw�}�C�y�f�B�A�x�p lookup �⏕�p�b�P�[�W
+mypaedia-package --- FreePWING 版『マイペディア』用 lookup 補助パッケージ
 
-    �����Ђ� <kazuhiko@ring.gr.jp>
+    かずひこ <kazuhiko@ring.gr.jp>
     http://openlab.ring.gr.jp/edict/mypaedia-fpw/
 
-���̃f�B���N�g���ɂ̓}�C�y�f�B�A�̃}���`���f�B�A�E�f�[�^�� lookup �ŗ��p
-���邽�߂� elisp �t�@�C�������߂Ă��܂��B
+このディレクトリにはマイペディアのマルチメディア・データを lookup で利用
+するための elisp ファイルを収めています。
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-1. �K�v�Ȃ���
+1. 必要なもの
 
-    FreePWING �Ń}�C�y�f�B�A 1.3.2 �ȍ~
+    FreePWING 版マイペディア 1.3.2 以降
 	http://openlab.ring.gr.jp/edict/mypaedia-fpw/
-	��҂̏��L����w�}�C�y�f�B�A for Win (2000�N��)�x�A�w�}�C�y�f�B
-	�A PC Success �Łx�œ���m�F�ρB
+	作者の所有する『マイペディア for Win (2000年版)』、『マイペディ
+	ア PC Success 版』で動作確認済。
 
-    lookup 1.2 (�����炭 1.0 �� 1.1 �ł���)
+    lookup 1.2 (おそらく 1.0 や 1.1 でも可)
 	http://openlab.ring.gr.jp/lookup/
 
-���̂ق��CJPEG�CBMP�CPNG�CMIDI�CWAV�CAVI ��\���E�Đ��ł���\�t�g�E�F�A
-���K�v�ł� (�S���͂Ȃ��Ă���)�B
+そのほか，JPEG，BMP，PNG，MIDI，WAV，AVI を表示・再生できるソフトウェア
+が必要です (全部はなくても可)。
 
-(�Q�l URL)
+(参考 URL)
 
-    TiMidity++ -- MIDI �Đ�
+    TiMidity++ -- MIDI 再生
 	http://www.goice.co.jp/member/mo/timidity/
-    sox -- WAV �Đ�
+    sox -- WAV 再生
 	http://home.sprynet.com/~cbagwell/sox.html
-    xanim -- AVI �Đ� (cinepak �p�� dll ���K�v)
+    xanim -- AVI 再生 (cinepak 用の dll も必要)
 	http://xanim.va.pubnix.com/home.html
-    ImageMagick -- �e��摜�̕\��
+    ImageMagick -- 各種画像の表示
 	http://www.wizards.dupont.com/cristy/ImageMagick.html
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-2. ���p���@
+2. 利用方法
 
-~/.lookup �ŁC
+~/.lookup で，
 
    (setq lookup-search-agents '((ndeb "/usr/share/dict/mypaedia")))
    (setq lookup-package-directory "/usr/share/dict/package")
    (lookup-use-package "ndeb+/usr/share/dict/mypaedia" "mypaedia-fpw")
 
-   ; BH.DAT�CCH.DAT�CMAP.DAT�CPICT.DAT �̂���ꏊ
+   ; BH.DAT，CH.DAT，MAP.DAT，PICT.DAT のある場所
    (setq mypaedia-data-directory "/mnt/cdrom/INDEX")
 
-   ; *.MID�C*.WAV�C*.AVI �̂���ꏊ
+   ; *.MID，*.WAV，*.AVI のある場所
    (setq mypaedia-av-directory "/mnt/cdrom/DATA")
 
    (setq mypaedia-play-midi-process "timidity")
    (setq mypaedia-play-wav-process "soxplay")
    (setq mypaedia-play-avi-process "xanim")
    (setq mypaedia-display-image-process "display")
-   ; "perl �̃v���Z�X���B�p�X���ʂ��Ă��Ȃ��ꍇ�̓t���p�X�ŋL�q���邱�ƁB
+   ; "perl のプロセス名。パスが通っていない場合はフルパスで記述すること。
    (setq perl-process "perl")
 
-   ; �ꎞ�t�@�C���̒u���ꏊ�B
+   ; 一時ファイルの置き場所。
    (setq temorary-file-directory "/tmp")
- 
-�̂悤�ɐݒ肵�āClookup-package-directory �� mypaedia-fpw.el �� 
-extract-mypaedia.pl ���R�s�[���ĉ������Bxemacs ����� emacs-21 �ł͉摜
-�̃C�����C���\���ɑΉ����Ă��܂����Cxemacs �ł̓L���b�V���������Ă��Ȃ�
-�̂ŁC�摜���ĕ\���������Ƃ��ɂ� `g' �Ń����[�h����K�v������܂��B�Ȃ��C
-�C�����C���\�����������Ȃ��Ƃ��́C~/.lookup ��
+
+のように設定して，lookup-package-directory に mypaedia-fpw.el と
+extract-mypaedia.pl をコピーして下さい。xemacs および emacs-21 では画像
+のインライン表示に対応していますが，xemacs ではキャッシュが効いていない
+ので，画像を再表示したいときには `g' でリロードする必要があります。なお，
+インライン表示させたくないときは，~/.lookup で
 
    (setq mypaedia-image-inline nil)
 
-�Ƃ��Ă��������B�܂��C
+としてください。また，
 
-�摜�CMIDI�CWAV�CAVI �̂����\���E�Đ��������Ȃ����̂ɂ��ẮC
-~/.lookup �ł��ꂼ��
+画像，MIDI，WAV，AVI のうち表示・再生したくないものについては，
+~/.lookup でそれぞれ
 
    (setq mypaedia-display-image-process nil)
    (setq mypaedia-play-midi-process nil)
    (setq mypaedia-play-wav-process nil)
    (setq mypaedia-play-avi-process nil)
 
-�Ƃ��Ă��������B
+としてください。
 
-�����⓮����C�����Ɠ����ɍĐ��������ꍇ�́C~/.lookup �ł��ꂼ��
+音声や動画を，検索と同時に再生したい場合は，~/.lookup でそれぞれ
 
    (setq mypaedia-sound-without-notice t)
    (setq mypaedia-video-without-notice t)
 
-�Ƃ��Ă��������B
+としてください。
 
-�Ȃ� lookup �Ō�������ۂɁA�f�[�^�ʂ̑����G���g���Ŗ{�����r���� <more
-point=5> �ƂȂ��ēr�؂��ꍇ�́Alookup-max-text �̒l��ύX���Ă��������B
-�ڂ����� lookup �t���̃h�L�������g���������������B
+なお lookup で検索する際に、データ量の多いエントリで本文が途中で <more
+point=5> となって途切れる場合は、lookup-max-text の値を変更してください。
+詳しくは lookup 付属のドキュメントをご覧ください。
 
-> lookup-max-text : �������ɕ\������G���g���{���̍ő咷�B0 ���w�肷��ƁA
-> �S����\������B
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-2. ���C�Z���X
-
-mypaedia-package �̓t���[�\�t�g�E�F�A�ł��B���Ȃ��́CFree Software
-Foundation �����\���� GNU General Public License (GNU ��ʌ��L�g�p����)
-�o�[�W���� 2 ���邢�͂���ȍ~�̊e�o�[�W�����̒����炢���ꂩ��I�����C��
-�̃o�[�W��������߂�����ɏ]���Ė{�v���O�������ĔЕz�܂��͕ύX���邱�Ƃ�
-�ł��܂��B
-
-mypaedia-package �͗L�p�Ƃ͎v���܂����C�Еz�ɂ������ẮC�s�ꐫ�y�ѓ���
-�ړI�K�����ɂ��Ă̈Öق̕ۏ؂��܂߂āC�����Ȃ�ۏ؂��s���܂���B�ڍׂ�
-���Ă� GNU General Public License �����ǂ݉������B
+> lookup-max-text : 検索時に表示するエントリ本文の最大長。0 を指定すると、
+> 全文を表示する。
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-3. �ӎ�
+2. ライセンス
 
-���^������Ă������������c�\���C�啝�Ɋg�����Ă������������}�a�`����C
-����m�F�Ȃǂɂ����͂�����������{������AOKUNISHI ����A������ lookup
-Mailing List *1 �݂̂Ȃ���Ɋ��ӂ��܂��B
+mypaedia-package はフリーソフトウェアです。あなたは，Free Software
+Foundation が公表した GNU General Public License (GNU 一般公有使用許諾)
+バージョン 2 あるいはそれ以降の各バージョンの中からいずれかを選択し，そ
+のバージョンが定める条項に従って本プログラムを再頒布または変更することが
+できます。
+
+mypaedia-package は有用とは思いますが，頒布にあたっては，市場性及び特定
+目的適合性についての暗黙の保証を含めて，いかなる保証も行いません。詳細に
+ついては GNU General Public License をお読み下さい。
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+3. 謝辞
+
+原型を作ってくださった西田圭介さん，大幅に拡張してくださった是枝和義さん，
+動作確認などにご協力くださった野宮賢さん、OKUNISHI さん、そして lookup
+Mailing List *1 のみなさんに感謝します。
 
  *1 http://openlab.ring.gr.jp/lookup/
