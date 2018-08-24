@@ -30,9 +30,9 @@
   "*.MID, *.WAV, *.AVI のある場所。")
 (defvar mypaedia-play-midi-process "timidity"
   "MIDI を再生するプロセス名。nil なら再生しない。")
-(defvar mypaedia-play-wav-process "soxplay"
+(defvar mypaedia-play-wav-process "alsaplayer"
   "WAV を再生するプロセス名。nil なら再生しない。")
-(defvar mypaedia-play-avi-process "xanim"
+(defvar mypaedia-play-avi-process "vlc"
   "AVI を再生するプロセス名。nil なら再生しない。")
 (defvar mypaedia-display-image-process "display"
   "画像 を表示するプロセス名。nil なら表示しない。")
