@@ -1,0 +1,71 @@
+2001-12-01  Kazuhiko  <kazuhiko@ring.gr.jp>
+
+	* mypaedia-fpw-package-1.0.7 公開
+	* mypaedia-fpw.el (mypaedia-arrange-images): Emacs-21 に対応。
+
+2001-06-24  Kazuhiko  <kazuhiko@ring.gr.jp>
+
+	* mypaedia-fpw-package-1.0.6 公開
+	* mypaedia-fpw.el (lookup-package-dictionary-options-alist): 辞書
+	名が大文字でも小文字でも対応するように変更。
+
+2000-10-06 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia-fpw-package-1.0.4 公開
+	* mypaedia-fpw.el XEmacs でのインライン表示を、一時的に 
+	  format-alist を変更することにより XEmacs-21.2.x に対応。
+
+2000-08-05 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia-fpw.el display-image-inline から mypaedia-image-inline に
+	  改名。
+
+2000-08-01 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia-fpw-package-1.0.3 公開
+	* extract-mypaedia.pl extract.pl を改名。
+
+2000-06-17 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia-fpw-package1.0.2 公開（mypaedia-package を改称）。
+
+2000-06-16 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia-fpw.el mypaedia.el を改称。
+	* extract.pl 新設。
+	* mypaedia-fpw.el ファイルの切出しを elisp ではなく perl で実装した。
+	  これにより、emacs の int の制限を回避。
+
+2000-04-12 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia-package1.0.1 公開
+
+	* mypaedia.el 音声や動画のプロセスを mini buffer に表示するように
+	  した。そのほか細かなバグ修正。
+	* README.TXT lookup-max-text に関する記述などを追加。
+
+2000-04-11 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia-package1.0 公開
+
+	* mypaedia.el xemacs での非インライン表示に対応。WAV, AVI のいきな
+	  り再生に対応。
+	
+2000-04-10 Kazuyoshi Koreeda <k_koreed@d2.dion.ne.jp>
+
+	* mypaedia.el MIDI のいきなり再生に対応。ファイル名タグを非表示に。
+
+2000-03-31 Kazuyoshi Koreeda <k_koreed@d2.dion.ne.jp>
+
+	* mypaedia.el 外部プロセスを用いた画像表示に対応。
+
+2000-03-26 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+
+	* mypaedia.el MIDI，WAV，AVI のファイル名を表示するようにした。
+
+2000-03-17 Kazuhiko Shiozaki <kazuhiko@ring.gr.jp>
+	* mypaedia.el 外部プロセスを用いた MIDI，WAV，AVI の再生に対応。
+
+2000-03-11 Keisuke Nishida <kxn30@po.cwru.edu>
+
+	* mypaedia.el xemacs での画像のインライン表示に対応。
