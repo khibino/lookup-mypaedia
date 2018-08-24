@@ -14,31 +14,34 @@
 
 require 5.005;
 
+use strict;
+use warnings;
 use English;
 use FileHandle;
 
-$file = shift;
-$offset = hex shift;
-$size = hex shift;
-$tmp_file = shift;
+my $file = shift;
+my $offset = hex shift;
+my $size = hex shift;
+my $tmp_file = shift;
 
 # print "File:$file\n";
 # print "Offset:$offset\n";
 # print "Size:$size\n";
 # print "Tmp_File:$tmp_file\n";
 
-$handle_in = FileHandle->new();
+my $handle_in = FileHandle->new();
 if (!$handle_in->open("$file", 'r')) {
   die "$PROGRAM_NAME: failed to open the file, $ERRNO: $file\n";
 }
 binmode $handle_in;
 
-$handle_out = FileHandle->new();
+my $handle_out = FileHandle->new();
 if (!$handle_out->open("$tmp_file", 'w')) {
   die "$PROGRAM_NAME: failed to open the file, $ERRNO: $tmp_file\n";
 }
 binmode $handle_out;
 
+my $content;
 seek($handle_in, $offset, 0) || die "Seek Error\n";
 read $handle_in, $content, $size || die "Read Error\n";
 print $handle_out $content || die "Write Error\n";
