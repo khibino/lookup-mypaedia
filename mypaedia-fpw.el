@@ -23,6 +23,7 @@
 
 (require 'lookup-package)
 (require 'lookup-content)
+(require 'ndeb)
 
 (defvar mypaedia-data-directory "/usr/share/dict/epwing/MYPAEDIA_DATA/INDEX"
   "BH.DAT, CH.DAT, MAP.DAT, PICT.DAT のある場所。")
@@ -44,6 +45,8 @@
   "nil なら (可能な場合でも) 画像をインライン表示しない。")
 (defvar perl-process "/usr/bin/perl"
   "perl のプロセス名。パスが通っていない場合はフルパスで記述すること。")
+
+(setq ndeb-max-image-size 4194304)
 
 (defconst mypaedia-arranges
   '(lookup-arrange-gaijis
