@@ -1,4 +1,4 @@
-;;; mypaedia.el --- supplement file for 『マイペディア９９』
+;;; mypaedia-fpw.el --- supplement file for 『マイペディア９９』
 ;; $Id: mypaedia-fpw.el,v 1.8 2001/11/25 05:04:49 kazuhiko Exp $
 ;;
 ;; Copyright (C) 2000 Keisuke Nishida <kxn30@po.cwru.edu>
@@ -300,4 +300,4 @@
 
 (provide 'mypaedia-fpw)
 
-;;; mypaedia.el ends here
+;;; mypaedia-fpw.el ends here
