@@ -298,4 +298,6 @@
 			((eq lookup-package-agent 'ndeb) "MYPAEDIA"))
 		  mypaedia-dictionary-options)))
 
+(provide 'mypaedia-fpw)
+
 ;;; mypaedia.el ends here
