@@ -24,9 +24,9 @@
 (require 'lookup-package)
 (require 'lookup-content)
 
-(defvar mypaedia-data-directory "/mnt/cdrom/INDEX"
+(defvar mypaedia-data-directory "/usr/share/dict/epwing/MYPAEDIA_DATA/INDEX"
   "BH.DAT, CH.DAT, MAP.DAT, PICT.DAT のある場所。")
-(defvar mypaedia-av-directory "/mnt/cdrom/DATA"
+(defvar mypaedia-av-directory "/usr/share/dict/epwing/MYPAEDIA_DATA/DATA"
   "*.MID, *.WAV, *.AVI のある場所。")
 (defvar mypaedia-play-midi-process "timidity"
   "MIDI を再生するプロセス名。nil なら再生しない。")
@@ -42,7 +42,7 @@
   "t なら検索と同時に動画を再生する。")
 (defvar mypaedia-image-inline t
   "nil なら (可能な場合でも) 画像をインライン表示しない。")
-(defvar perl-process "perl"
+(defvar perl-process "/usr/bin/perl"
   "perl のプロセス名。パスが通っていない場合はフルパスで記述すること。")
 
 (defconst mypaedia-arranges
